@@ -9,12 +9,12 @@
 
 
     <groupId>org.example</groupId>
-    <artifactId>Project-parent</artifactId>
+    <artifactId>cars-offer-parrent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>Cars-offer-jar</module>
-        <module>Cars-offer-web</module>
+        <module>cars-offer-common</module>
+        <module>cars-offer-web</module>
     </modules>
 
 

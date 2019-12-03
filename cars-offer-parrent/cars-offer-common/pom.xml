@@ -8,8 +8,12 @@
 
     <packaging>jar</packaging>
 
+    <parent>
+        <groupId>org.example</groupId>
+        <artifactId>cars-offer-parrent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <name>cars-offer-common</name>
-    <groupId>org.example</groupId>
     <artifactId>cars-offer-common</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -21,5 +25,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build></build>
 
 </project>

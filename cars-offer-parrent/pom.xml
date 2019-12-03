@@ -31,6 +31,7 @@
                     <configuration>
                         <source>${maven.complier.source}</source>
                         <target>${maven.complier.target}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
                     </configuration>
                 </plugin>
             </plugins>

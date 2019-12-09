@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <display-name>Cars-offer Web App</display-name>
+
+    <servlet>
+        <servlet-name>ProductCreate</servlet-name>
+        <servlet-class>cars-offer-common.src.main.Java.by.it.academy.offer.servlet.ProductCreateService</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ProductCreate</servlet-name>
+        <url>/create</url>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListServlet</servlet-name>
+        <servlet-class>ProductListService</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ListServlet</servlet-name>
+        <url>/List</url>
+    </servlet-mapping>
+
+</web-app>

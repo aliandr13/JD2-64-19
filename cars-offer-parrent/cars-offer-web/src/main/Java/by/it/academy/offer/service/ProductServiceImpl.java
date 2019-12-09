@@ -2,6 +2,7 @@ package by.it.academy.offer.service;
 
 import by.it.academy.offer.model.Product;
 
+import javax.servlet.http.HttpServlet;
 import java.util.ArrayList;
 import java.util.List;
 

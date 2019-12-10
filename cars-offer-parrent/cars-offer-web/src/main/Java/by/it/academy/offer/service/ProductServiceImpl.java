@@ -5,10 +5,13 @@ import by.it.academy.offer.model.Product;
 import javax.servlet.http.HttpServlet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class ProductServiceImpl implements ProductService {
 
     private static final ProductService INSTANCE = new ProductServiceImpl();
+
+    private AtomicLong id = new AtomicLong();
 
     private final List<Product> products;
 
@@ -25,12 +28,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getAllProducts() {
-        return products;
+        return new ArrayList<>(products);
     }
 
     @Override
     public void addNewProduct(Product product) {
-        product.setId((long) products.size() + 1);
+        product.setId(id.incrementAndGet());
         products.add(product);
     }
 

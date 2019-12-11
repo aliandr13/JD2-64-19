@@ -13,19 +13,9 @@
         <servlet-class>cars-offer-common.src.main.Java.by.it.academy.offer.servlet.ProductCreateService</servlet-class>
     </servlet>
 
-    <servlet-mapping>
-        <servlet-name>ProductCreate</servlet-name>
-        <url>/create</url>
-    </servlet-mapping>
-
     <servlet>
         <servlet-name>ListServlet</servlet-name>
         <servlet-class>ProductListService</servlet-class>
     </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ListServlet</servlet-name>
-        <url>/List</url>
-    </servlet-mapping>
 
 </web-app>

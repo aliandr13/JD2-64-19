@@ -21,7 +21,7 @@ public class ProductListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Product> allProducts = productService.getAllProducts();
         req.setAttribute("productList", allProducts);
-        req.getRequestDispatcher("/WEB-INF/product-list.jsp")
+        req.getRequestDispatcher("/WEB-INF/jsp/product-list.jsp")
                 .forward(req, resp);
     }
 }

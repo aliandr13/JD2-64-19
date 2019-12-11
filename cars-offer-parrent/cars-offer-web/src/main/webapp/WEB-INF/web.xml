@@ -8,14 +8,4 @@
 
     <display-name>Cars-offer Web App</display-name>
 
-    <servlet>
-        <servlet-name>ProductCreate</servlet-name>
-        <servlet-class>cars-offer-common.src.main.Java.by.it.academy.offer.servlet.ProductCreateService</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>ListServlet</servlet-name>
-        <servlet-class>ProductListService</servlet-class>
-    </servlet>
-
 </web-app>

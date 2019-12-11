@@ -1,4 +1,4 @@
-<$@ page contentType="text/html;charset=UTF-8" language="java"
+<%@ page contentType="text/html;charset=UTF-8" language="java"
 pageEncoding="UTF-8" %>
 
 <html>
@@ -7,17 +7,15 @@ pageEncoding="UTF-8" %>
 <jsp:include page="WEB-INF/include/header.jsp" />
 <%@ include file="WEB-INF/include/menu.jsp" %>
 
-
 <h2>Main Page!</h2>
 <p> Page bode </p>
-
 
 <ul>
     <li><a href="./productList">Product List</a></li>
     <li><a href="./productCreate">Create new Product</a></li>
 </ul>
 
-<jsp:include page="WEB-INF/include/footer.jsp"
+<jsp:include page="WEB-INF/include/footer.jsp" />
 
 </body>
 </html>

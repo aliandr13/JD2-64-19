@@ -7,6 +7,7 @@
 <body>
 
 <form method="post" action="${pageContext.request.contextPath}/productCreate">
+
     <label> CarModel: <input type="text" name="carModel"/> </label>
     <br>
     <label> Price: <input type="number" name="price"/> </label>

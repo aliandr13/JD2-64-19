@@ -2,7 +2,7 @@ package by.it.academy.offer.model;
 
 import java.util.Objects;
 
-public class Product {
+public class Car {
 
     private long Id;
     private String carModel;
@@ -11,10 +11,10 @@ public class Product {
     private String engine;
     private int year;
 
-    public Product(Long o, String carModel, Double price, String color, String engine, Integer year) {
+    public Car(Long o, String carModel, Double price, String color, String engine, Integer year) {
     }
 
-    public Product(long id, String carModel, double price, String color, String engine, int year) {
+    public Car(long id, String carModel, double price, String color, String engine, int year) {
         this.Id = id;
         this.carModel = carModel;
         this.priceForHour = price;
@@ -27,7 +27,7 @@ public class Product {
         return Id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.Id = id;
     }
 
@@ -75,7 +75,7 @@ public class Product {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
+        Car product = (Car) o;
         return Id == product.Id &&
                 Double.compare(product.priceForHour, priceForHour) == 0 &&
                 year == product.year &&

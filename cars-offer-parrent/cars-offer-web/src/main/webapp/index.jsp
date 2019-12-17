@@ -3,7 +3,6 @@ pageEncoding="UTF-8" %>
 
 <html>
 <body>
-
 <jsp:include page="WEB-INF/include/header.jsp" />
 <%@ include file="WEB-INF/include/menu.jsp" %>
 
@@ -11,7 +10,7 @@ pageEncoding="UTF-8" %>
 <p> Page bode </p>
 
 <ul>
-    <li><a href="./productList">Product List</a></li>
+    <li><a href="./model-list">Product List</a></li>
     <li><a href="./productCreate">Create new Product</a></li>
 </ul>
 
@@ -19,3 +18,4 @@ pageEncoding="UTF-8" %>
 
 </body>
 </html>
+

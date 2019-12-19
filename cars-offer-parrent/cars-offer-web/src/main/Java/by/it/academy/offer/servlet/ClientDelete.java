@@ -1,6 +1,5 @@
 package by.it.academy.offer.servlet;
 
-import by.it.academy.offer.model.Client;
 import by.it.academy.offer.service.ClientService;
 import by.it.academy.offer.service.ClientServiceImpl;
 

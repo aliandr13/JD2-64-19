@@ -22,7 +22,6 @@
             <th>${client.firstName}</th>
             <th>${client.phone}</th>
             <th>
-
                 <a:auth path="/client-delete">
                     <a href="${delete_link}">Delete</a>
                 </a:auth>

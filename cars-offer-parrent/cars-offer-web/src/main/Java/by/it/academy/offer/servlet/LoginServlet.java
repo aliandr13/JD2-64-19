@@ -1,5 +1,6 @@
 package by.it.academy.offer.servlet;
 
+import by.it.academy.offer.model.Car;
 import by.it.academy.offer.model.User;
 import by.it.academy.offer.service.UserService;
 import by.it.academy.offer.service.UserServiceImpl;
@@ -12,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Optional;
 
-
 @WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     private final UserService userService = UserServiceImpl.getInstance();
@@ -20,17 +20,17 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession(true).setAttribute("offer.user.Locale", "ru");
-        req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/include/login.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
+
         String rememberMeStr = req.getParameter("rememberMe");
         boolean remember = "Y".equals(rememberMeStr);
-
-        req.getParameter("language");
 
         String errorMsg = "";
         boolean hasError = false;
@@ -51,10 +51,9 @@ public class LoginServlet extends HttpServlet {
         if (hasError) {
             req.setAttribute("errorString", errorMsg);
             req.setAttribute("user", new User(userName, password));
-            req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/include/login.jsp").forward(req, resp);
         } else {
             resp.sendRedirect(req.getContextPath() + "/home");
         }
-
     }
 }

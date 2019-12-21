@@ -32,7 +32,7 @@
 </table>
 <p>
     <c:url value="/client-add" var="add" scope="page"/>
-    <a href="${add}">Add new Student</a>
+    <a href="${add}">Add new Client</a>
 </p>
 
 <%@include file="../include/footer.jsp" %>

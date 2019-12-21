@@ -23,7 +23,7 @@
                 <select id="car" name="carId">
                     <c:forEach var="car" items="${cars}">
                         <option value="${car.id}"
-                                <c:if test="${carSelected == car.id}">selected='selected'</c:if>  >${course.name}</option>
+                                <c:if test="${carSelected == car.id}">selected='selected'</c:if>  >${car.name}</option>
                     </c:forEach>
                 </select>
             </td>

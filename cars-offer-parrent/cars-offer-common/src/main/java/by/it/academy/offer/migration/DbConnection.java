@@ -1,4 +1,4 @@
-package by.it.academy.offer.migration;
+ package by.it.academy.offer.migration;
 
 import org.slf4j.LoggerFactory;
 
@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 public class DbConnection {
     //   private static final Logger logger = LoggerFactory.getLogger(DbConnection.class);
     public Connection getConnection() throws SQLException, ClassNotFoundException {
-
 
         Class.forName("com.mariadb.jdbc.Driver");
         Connection connection = new DbConnection().getConnection();

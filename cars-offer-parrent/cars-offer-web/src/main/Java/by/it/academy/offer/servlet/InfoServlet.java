@@ -16,7 +16,7 @@ public class  InfoServlet extends HttpServlet {
     private static final Logger log = LoggerFactory.getLogger(InfoServlet.class);
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.info("/info");
         resp.getWriter().println("Don't sleep, you must work");
     }

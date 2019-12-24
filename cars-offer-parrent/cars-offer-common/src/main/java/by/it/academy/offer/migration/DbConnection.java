@@ -23,10 +23,10 @@ public class DbConnection {
         Connection connection;
         connection = new DbConnection().getConnection();
         Statement statement = connection.createStatement();
-        statement.executeUpdate("INSERT INTO empl (name,dep_id) VALUES ('AAAA',1) ");
+        statement.executeUpdate("INSERT INTO departament (id,name) VALUES (1, 'AAAA') ");
 //     System.out.println("Affected rows ="+i);
 
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM empl;");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM departament;");
         while (resultSet.next()){
           int id =   resultSet.getInt("id");
             System.out.println("New Id ="+ id);

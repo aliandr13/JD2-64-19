@@ -1,9 +1,8 @@
 package by.it.academy.offer.servlet;
 
-import by.it.academy.offer.model.Car;
 import by.it.academy.offer.model.User;
 import by.it.academy.offer.service.UserService;
-import by.it.academy.offer.service.UserServiceImpl;
+import by.it.academy.offer.dao.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,15 +28,15 @@ public class LoginServlet extends HttpServlet {
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
 
-        String rememberMeStr = req.getParameter("rememberMe");
-        boolean remember = "Y".equals(rememberMeStr);
+//        String rememberMeStr = req.getParameter("rememberMe");
+//        boolean remember = "Y".equals(rememberMeStr);
 
         String errorMsg = "";
         boolean hasError = false;
 
         if (userName == null || userName.length() == 0 || password == null || password.length() == 0) {
             hasError = true;
-            errorMsg = "UserName and password should not be empty; ";
+            errorMsg = "UserName and password should not be empty";
         } else {
             Optional<User> user = userService.findUser(userName, password);
             if (user.isEmpty()) {

@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class OfferContextInitListener {
+/* public class OfferContextInitListener {
     @WebListener()
     public class ELearningContextInitListener implements ServletContextListener {
         public void contextInitialized(ServletContextEvent sce) {
@@ -26,3 +26,5 @@ public class OfferContextInitListener {
         }
     }
 }
+
+ */

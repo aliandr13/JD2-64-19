@@ -21,6 +21,7 @@ public class CarListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Client> allClients = service.getAllClients();
         req.setAttribute("model-list", allClients);
+
         req.getRequestDispatcher("/WEB-INF/jsp/model-list.jsp")
                 .forward(req, resp);
     }

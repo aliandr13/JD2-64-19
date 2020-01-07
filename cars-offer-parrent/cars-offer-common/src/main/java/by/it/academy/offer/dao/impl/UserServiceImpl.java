@@ -1,6 +1,7 @@
-package by.it.academy.offer.service;
+package by.it.academy.offer.dao.impl;
 
 import by.it.academy.offer.model.User;
+import by.it.academy.offer.service.UserService;
 
 import java.util.Map;
 import java.util.Optional;

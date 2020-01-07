@@ -20,8 +20,8 @@ public class ClientListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Client> allStudents = service.getAllClients();
-        req.setAttribute("clients", allStudents);
+        List<Client> allClients = service.getAllClients();
+        req.setAttribute("clients", allClients);
         req.getRequestDispatcher("/WEB-INF/jsp/client-list.jsp")
                 .forward(req, resp);
     }

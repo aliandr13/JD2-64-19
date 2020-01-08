@@ -12,7 +12,7 @@ import java.util.*;
 public class ClientServiceImpl implements ClientService {
 
     private static final ClientService INSTANCE = new ClientServiceImpl();
-    private static final Logger logger = LoggerFactory.getLogger(ClientServiceImpl.class);
+    public static final Logger logger = LoggerFactory.getLogger(ClientServiceImpl.class);
 
     private final ClientDao clientDao = ClientDaoImpl.getInstance();
 

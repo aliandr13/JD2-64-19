@@ -9,26 +9,27 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import javax.sql.DataSource;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
+import java.util.ResourceBundle;
+
+import static by.it.academy.offer.service.ClientServiceImpl.logger;
 
 @WebListener()
 public class CarOffersContextInitListener implements ServletContextListener {
-    private static final Logger logger = LoggerFactory.getLogger(CarOffersContextInitListener.class);
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         logger.info("Context initialized");
         try {
-            URL resource = this.getClass().getClassLoader().getResource("hikari.properties");
-            ODataSource.init(new File(resource.getFile()));
+            ResourceBundle bundle = ResourceBundle.getBundle("mysql_hikari");
+            ODataSource.configure(bundle);
             DataSource dataSource = ODataSource.getDataSource();
             DbMigration.migrate(dataSource);
-        } catch (IOException e) {
+        } catch (Exception e) {
             logger.error("error", e);
-            throw new RuntimeException("Datasource initialisation error");
+            throw new RuntimeException("Datasource initialisation error", e);
         }
     }
+
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {

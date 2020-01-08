@@ -4,11 +4,9 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 import javax.sql.DataSource;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 public final class ODataSource {
 
@@ -17,39 +15,42 @@ public final class ODataSource {
     private ODataSource() {
     }
 
-    static {
+//    static {
+//        HikariConfig config = new HikariConfig();
+//        config.setJdbcUrl("jdbc:mysql://localhost:3306/MyTest?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false");
+//        config.setUsername("root");
+//        config.setPassword("r20Porsche2022");
+//        config.setMaximumPoolSize(20);
+//        config.setMinimumIdle(5);
+//        dataSource = new HikariDataSource(config);
+//    }
+
+    public static void configure(ResourceBundle bundle) throws ClassNotFoundException {
+        Class.forName(bundle.getString("db.driver.name"));
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/MyTest?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false");
-        config.setUsername("root");
-        config.setPassword("r20Porsche2022");
+        config.setJdbcUrl(bundle.getString("db.url"));
+        config.setUsername(bundle.getString("db.user.name"));
+        config.setPassword(bundle.getString("db.user.password"));
         config.setMaximumPoolSize(20);
         config.setMinimumIdle(5);
         dataSource = new HikariDataSource(config);
     }
 
-    public static DataSource getInstance() {
-        return dataSource;
-    }
-
     public static Connection getConnection() throws SQLException {
+        check();
         return dataSource.getConnection();
     }
 
-     public synchronized static void init(File file) throws FileNotFoundException {
-         if (dataSource == null) {
-             if (!file.isFile() || !file.exists()) {
-                 throw new FileNotFoundException("File not found " + file);
-             }
-             HikariConfig config = new HikariConfig(file.getAbsolutePath());
-             dataSource = new HikariDataSource(config);
-         }
-     }
-
-    public static DataSource getDataSource() throws IOException {
-        if (dataSource == null) {
-            throw new IOException("Datasource is null need to call init() first");
-        }
+    public static DataSource getDataSource() throws SQLException {
+        check();
         return dataSource;
     }
+
+    private static void check() throws SQLException {
+        if (dataSource == null) {
+            throw new SQLException("Datasource is null; Need to call init() first");
+        }
+    }
+
 
 }

@@ -15,15 +15,15 @@ public final class ODataSource {
     private ODataSource() {
     }
 
-//    static {
-//        HikariConfig config = new HikariConfig();
-//        config.setJdbcUrl("jdbc:mysql://localhost:3306/MyTest?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false");
-//        config.setUsername("root");
-//        config.setPassword("r20Porsche2022");
-//        config.setMaximumPoolSize(20);
-//        config.setMinimumIdle(5);
-//        dataSource = new HikariDataSource(config);
-//    }
+    static {
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl("jdbc:mysql://localhost:3306/MyTest?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false");
+        config.setUsername("root");
+        config.setPassword("r20Porsche2022");
+        config.setMaximumPoolSize(20);
+        config.setMinimumIdle(5);
+        dataSource = new HikariDataSource(config);
+    }
 
     public static void configure(ResourceBundle bundle) throws ClassNotFoundException {
         Class.forName(bundle.getString("db.driver.name"));

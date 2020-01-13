@@ -13,6 +13,7 @@
     <modules>
         <module>cars-offer-common</module>
         <module>cars-offer-web</module>
+        <module>common-hibernate</module>
     </modules>
 
     <properties>

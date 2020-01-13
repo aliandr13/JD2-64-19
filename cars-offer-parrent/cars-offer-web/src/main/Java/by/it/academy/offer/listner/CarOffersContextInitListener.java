@@ -2,9 +2,6 @@ package by.it.academy.offer.listner;
 
 import by.it.academy.offer.db.connection.pool.ODataSource;
 import by.it.academy.offer.migration.DbMigration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
@@ -20,7 +17,7 @@ public class CarOffersContextInitListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         logger.info("Context initialized");
         try {
-            ResourceBundle bundle = ResourceBundle.getBundle("mysql_hikari");
+            ResourceBundle bundle = ResourceBundle.getBundle("hikari");
             ODataSource.configure(bundle);
             DataSource dataSource = ODataSource.getDataSource();
             DbMigration.migrate(dataSource);

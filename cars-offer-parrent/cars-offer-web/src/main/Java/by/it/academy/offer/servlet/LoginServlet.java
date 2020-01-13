@@ -28,9 +28,6 @@ public class LoginServlet extends HttpServlet {
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
 
-//        String rememberMeStr = req.getParameter("rememberMe");
-//        boolean remember = "Y".equals(rememberMeStr);
-
         String errorMsg = "";
         boolean hasError = false;
 

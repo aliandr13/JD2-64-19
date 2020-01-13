@@ -1,4 +1,4 @@
-/* package by.it.academy.offer.filter;
+package by.it.academy.offer.filter;
 
 import by.it.academy.offer.model.User;
 import org.slf4j.Logger;
@@ -34,4 +34,3 @@ public class AuthFilter extends HttpFilter {
         }
     }
 }
-*/

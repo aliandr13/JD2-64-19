@@ -1,14 +1,18 @@
 package by.it.academy.dao;
 
+import by.it.academy.entity.Person;
 import by.it.academy.entity.PersonEntity;
 
+import java.util.List;
+
+
 public interface PersonDao {
-    PersonEntity create(PersonEntity pe);
+    void create(Person pe);
 
-    PersonEntity update(PersonEntity pe);
+    void update(Person pe);
 
-    PersonEntity read(PersonEntity pe);
+    List<Person> read(Person pe);
 
-    void delete(PersonEntity pe);
+    void delete(Person pe);
 
 }

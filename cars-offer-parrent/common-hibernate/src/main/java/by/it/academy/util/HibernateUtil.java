@@ -1,27 +1,33 @@
 package by.it.academy.util;
 
 import lombok.extern.slf4j.Slf4j;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 
 @Slf4j
 public class HibernateUtil {
-    private static final EntityManagerFactory MN_FACTORY;
+    private static final SessionFactory sessionFactory = buildSessionFactory();
 
-    static {
-        MN_FACTORY = Persistence.createEntityManagerFactory("by.it.academy");
+    private static SessionFactory buildSessionFactory() {
+        try {
+            return new Configuration().configure().buildSessionFactory();
+        } catch (Throwable e) {
+            log.error("Failed to create sessionFactory object." + e);
+            throw new ExceptionInInitializerError(e);
+        }
     }
 
 
-    public static EntityManager getEntityManager() {
-        return MN_FACTORY.createEntityManager();
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
     }
 
-    public static void close() {
-        MN_FACTORY.close();
+    public static void shutdown() {
+        getSessionFactory().close();
     }
+
 }
+
+
 

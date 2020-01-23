@@ -1,7 +1,7 @@
 package by.it.academy.dao;
 
 import by.it.academy.entity.Person;
-import by.it.academy.entity.PersonEntity;
+
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public interface PersonDao {
 
     void update(Person pe);
 
-    List<Person> read(Person pe);
+    List<Person> read();
 
     void delete(Person pe);
 

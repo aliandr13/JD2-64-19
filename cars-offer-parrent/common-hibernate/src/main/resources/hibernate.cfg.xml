@@ -14,5 +14,6 @@
         <mapping class="by.it.academy.entity.Person"/>
         <mapping class="by.it.academy.entity.EmployeeDetail"/>
         <mapping class="by.it.academy.entity.Employee"/>
+        <mapping class="by.it.academy.entity.Department"/>
     </session-factory>
 </hibernate-configuration>

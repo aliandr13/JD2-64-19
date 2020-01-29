@@ -15,12 +15,15 @@ public class PersonDaoImpl implements PersonDao {
         try {
             PersonDaoImpl first = new PersonDaoImpl();
             PersonDaoImpl second = new PersonDaoImpl();
-            Person person = new Person(null, 19, "Алексей", "Васильевич");
+            Person person = new Person(null, 19, "Леша", "Васильевич");
             Person person1 = new Person(null, 19, "Иван", "Иванов");
             Person person2 = new Person(null, 10, "MY", "S");
             Person person3 = new Person(null, 0, "0", "0");
             first.create(person);
             first.create(person3);
+            person.setName("Саша");
+            first.update(person);
+            first.read();
         } finally {
             HibernateUtil.shutdown();
         }
@@ -54,7 +57,7 @@ public class PersonDaoImpl implements PersonDao {
 
 
     @Override
-    public void update(Person pe) {
+    public  void update(Person pe) {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
@@ -81,7 +84,7 @@ public class PersonDaoImpl implements PersonDao {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            list = session.createQuery("from Person").list();
+            list = session.createQuery("from Person as e where e.age > 10 ").list();
             for (Person person : list
             ) {
                 log.info("Person list " + person);

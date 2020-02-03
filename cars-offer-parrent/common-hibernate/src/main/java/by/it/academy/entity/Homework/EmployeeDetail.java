@@ -1,10 +1,7 @@
-package by.it.academy.entity;
+package by.it.academy.entity.Homework;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -30,6 +27,8 @@ public class EmployeeDetail {
     @OneToOne(fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
     @Access(AccessType.PROPERTY)
+
+    @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Employee employee;
 

@@ -1,6 +1,6 @@
-package by.it.academy.dao;
+package by.it.academy.dao.Homework;
 
-import by.it.academy.entity.Person;
+import by.it.academy.entity.Homework.Person;
 
 
 import java.util.List;

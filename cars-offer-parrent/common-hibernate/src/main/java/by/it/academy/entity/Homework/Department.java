@@ -1,7 +1,8 @@
-package by.it.academy.entity;
+package by.it.academy.entity.Homework;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -20,7 +21,7 @@ public class Department {
     private Long departmentId;
     @Column(name = "NAME")
     private String departmentName;
-
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Employee> employeeSet = new HashSet<>();
 

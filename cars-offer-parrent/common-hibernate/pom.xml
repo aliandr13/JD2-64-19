@@ -6,6 +6,7 @@
 
     <artifactId>common-hibernate</artifactId>
 
+
     <parent>
         <groupId>org.example</groupId>
         <artifactId>cars-offer-parrent</artifactId>

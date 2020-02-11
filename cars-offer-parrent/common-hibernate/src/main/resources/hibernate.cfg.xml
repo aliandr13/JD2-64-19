@@ -10,16 +10,18 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="show_sql">true</property>
-        <property name="hbm2ddl.auto">create</property>
-        <mapping class="by.it.academy.entity.Homework.Person"/>
-        <mapping class="by.it.academy.entity.Homework.EmployeeDetail"/>
-        <mapping class="by.it.academy.entity.Homework.Employee"/>
-        <mapping class="by.it.academy.entity.Homework.Department"/>
-        <mapping class="by.it.academy.entity.Homework.Meeting"/>
+        <property name="hbm2ddl.auto">update</property>
+        <mapping class="by.it.academy.entity.Homework_Relation.Person"/>
+        <mapping class="by.it.academy.entity.Homework_Relation.EmployeeDetail"/>
+        <mapping class="by.it.academy.entity.Homework_Relation.Employee"/>
+        <mapping class="by.it.academy.entity.Homework_Relation.Department"/>
+        <mapping class="by.it.academy.entity.Homework_Relation.Meeting"/>
         <mapping class="by.it.academy.entity.Car"/>
         <mapping class="by.it.academy.entity.Client"/>
         <mapping class="by.it.academy.entity.Access"/>
         <mapping class="by.it.academy.entity.User"/>
-<!--        <mapping class="by.it.academy.entity.Mark" />-->
+        <mapping class="by.it.academy.entity.Mark" />
+        <mapping class="by.it.academy.entity.Model" />
+        <mapping class="by.it.academy.entity.Engine"/>
     </session-factory>
 </hibernate-configuration>

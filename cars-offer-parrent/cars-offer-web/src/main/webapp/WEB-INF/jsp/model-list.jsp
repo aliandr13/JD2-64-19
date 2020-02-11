@@ -2,29 +2,40 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Product List</title>
+    <title>Model List</title>
+    <style>
+        table {
+            margin: auto;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-<table>
+<h3 align="center">Offers</h3>
+<table border="1">
     <tr>
-        <td>Id</td>
-        <td>carModel</td>
-        <td>priceForHour</td>
-        <td>color</td>
-        <td>engine</td>
-        <td>year</td>
+        <th>price $</th>
+        <th>date</th>
+        <th>VIN</th>
     </tr>
-    <c:forEach items="${modelList}" var="product">
+    <c:forEach items="${modelList}" var="model">
         <tr>
-            <td><c:out value="${model.id}"/></td>
-            <td><c:out value="${model.carModel}"/></td>
-            <td><c:out value="${model.priceForHour}"/></td>
-            <td><c:out value="${model.color}"/></td>
-            <td><c:out value="${model.engine}"/></td>
-            <td><c:out value="${model.year}"/></td>
+            <td><c:out value="${model.price}"/></td>
+            <td><c:out value="${model.date}"/></td>
+            <td><c:out value="${model.VIN}"/></td>
+            <td><input type="button" name="userName" value="заказать"/></td>
         </tr>
     </c:forEach>
 </table>
+
+<form method="POST" action="${pageContext.request.contextPath}/Car-list">
+
+</form>
+
+
 </body>
 </html>

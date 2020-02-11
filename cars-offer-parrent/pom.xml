@@ -14,6 +14,7 @@
         <module>cars-offer-common</module>
         <module>cars-offer-web</module>
         <module>common-hibernate</module>
+        <module>cars-spring</module>
     </modules>
 
     <properties>

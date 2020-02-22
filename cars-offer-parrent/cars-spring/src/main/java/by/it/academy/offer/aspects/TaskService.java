@@ -1,4 +1,4 @@
-package by.it.academy.offer.aop;
+package by.it.academy.offer.aspects;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,5 +20,8 @@ public class TaskService {
         log.info("Job around job");
         return "SUCCESS";
     }
+     public void performJob(String name){
+        log.info("Job name: " + name);
+     }
 
 }

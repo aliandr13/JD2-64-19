@@ -3,21 +3,37 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        https://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/tx/
-       http://www.springframework.org/schema/tx/spring-tx.xsd">
+        http://http://www.springframework.org/schema/tx
+       https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    
 
     <context:annotation-config/>
-    <context:component-scan base-package="by.it.academy.offer.Homework4.repositiry"/>
+    <context:component-scan base-package="by.it.academy.offer.Homework4"/>
 
+    <jpa:repositories base-package="by.it.academy.offer.Homework4.repository" />
+    
     <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="txManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
     <tx:annotation-driven transaction-manager="txManager"/>
+
+    <tx:advice transaction-manager="txManager" id="txAdvice">
+        <tx:attributes>
+            <tx:method name="*"/>
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+
+
+
+<!--    <aop:advisor pointcut="execution(by.it.academy.offer.Homework4.entity" advice-ref="txAdvice" />-->
 
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="poolName" value="springHikariCP"/>

@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Date;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,7 +27,7 @@ public class Car {
     private String VIN;
 
     @ToString.Exclude
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "car",
-            cascade = CascadeType.ALL)
+    @JoinColumn(name = "MODEL_ID")
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Model model;
 }

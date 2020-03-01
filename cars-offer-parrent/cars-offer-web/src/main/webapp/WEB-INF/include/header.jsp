@@ -6,15 +6,16 @@
 
 <fmt:setLocale scope="session" value="${param.lang}"/>
 <fmt:setBundle basename="messages"/>
+
 <div style="background: #E0E0E0; height: 55px; padding: 5px;">
     <div style="float: left">
         <h1 style="margin-top: 10px"><fmt:message key="header.app.title"/></h1>
     </div>
 
     <div style="float: right; padding: 15px; text-align: right;">
-
         <c:if test="${user != null}"> Hello <b>${user.userName}</b>
             <a href="${pageContext.request.contextPath}/logout">logout</a>
         </c:if>
     </div>
 </div>
+

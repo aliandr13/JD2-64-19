@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8" %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +14,6 @@
 
 <h3>Login Page</h3>
 <p style="color: red;">${errorString}</p>
-
-
 
 <form method="POST" action="${pageContext.request.contextPath}/login">
     <table border="0">
@@ -41,8 +38,8 @@
     </table>
 </form>
 
-<p style="color:blue;">Admin User: Den password: 13579</p>
-<p style="color:blue;">Simple User: Rem password: 2468</p>
+<p style="color:blue;">Admin User: Roma password: 1111</p>
+<p style="color:blue;">Simple User: Kris password: 2222</p>
 
 <jsp:include page="/WEB-INF/include/footer.jsp"/>
 </body>

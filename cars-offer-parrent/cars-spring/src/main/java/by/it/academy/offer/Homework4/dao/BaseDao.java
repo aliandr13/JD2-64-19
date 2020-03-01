@@ -1,60 +1,44 @@
 package by.it.academy.offer.Homework4.dao;
 
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 
-public abstract class BaseDao<T> implements DAO<T> {
+public abstract class BaseDao<E> implements DAO<E> {
 
-    private final Class<T> clazz;
-
-    ThreadLocal<EntityManager> em = new ThreadLocal<>();
-
+    private final Class<E> clazz;
+    @Getter
     @Autowired
-    private EntityManagerFactory factory;
+    @PersistenceContext
+    private EntityManager em;
 
-    protected BaseDao(Class<T> clazz) {
+    protected BaseDao(Class<E> clazz) {
         this.clazz = clazz;
     }
 
     @Override
-    public T add(T t) {
-        begin();
-        getEm().persist(t);
-        commit();
-        return t;
-    }
-
-    public EntityManager getEm() {
-        if (em.get() == null) {
-            em.set(factory.createEntityManager());
-        }
-        return em.get();
+    public E add(E e) {
+        em.persist(e);
+        return e;
     }
 
     @Override
-    public T update(T t) {
-        return null;
-    }
-
-    @Override
-    public T get(Serializable id) {
+    public E get(Serializable id) {
         return getEm().find(clazz, id);
     }
 
     @Override
+    public E update(E e) {
+        em.merge(e);
+        return e;
+    }
+
+    @Override
     public void delete(Serializable id) {
-
+        em.remove(em.find(clazz, id));
     }
-
-    public void begin() {
-        getEm().getTransaction().begin();
-    }
-
-    public void commit() {
-        getEm().getTransaction().commit();
-    }
-
 }

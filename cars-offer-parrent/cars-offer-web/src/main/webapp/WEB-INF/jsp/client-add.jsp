@@ -1,5 +1,5 @@
 %@include file="../include/header.jsp" %>
-<form method="post" action="${pageContext.request.contextPath}/student-add">
+<form method="get" action="${pageContext.request.contextPath}/Orders">
     <table>
         <tr>
             <td><label>First Name</label></td>
@@ -21,10 +21,10 @@
             <td><label for="car">Course</label></td>
             <td>
                 <select id="car" name="carId">
-                    <c:forEach var="car" items="${cars}">
-                        <option value="${car.id}"
-                                <c:if test="${carSelected == car.id}">selected='selected'</c:if>  >${car.name}</option>
-                    </c:forEach>
+<%--                    <c:forEach var="car" items="${cars}">--%>
+<%--                        <option value="${car.id}"--%>
+<%--                                <c:if test="${carSelected == car.id}">selected='selected'</c:if>  >${car.name}</option>--%>
+<%--                    </c:forEach>--%>
                 </select>
             </td>
         </tr>

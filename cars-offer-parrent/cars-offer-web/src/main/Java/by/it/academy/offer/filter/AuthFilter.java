@@ -1,6 +1,6 @@
 //package by.it.academy.offer.filter;
 //
-//import by.it.academy.offer.model.User;
+//import by.it.academy.entity.User;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 //
@@ -26,7 +26,8 @@
 //        if (user == null
 //                && !req.getRequestURI().endsWith("/")
 //                && !req.getRequestURI().endsWith("/home")
-//                && !req.getRequestURI().endsWith("/login")) {
+//                && !req.getRequestURI().endsWith("/login")
+//                && !req.getRequestURI().endsWith("/Car-list")) {
 //            res.sendRedirect(req.getContextPath() + "/login");
 //
 //        } else {

@@ -6,9 +6,9 @@ public interface DAO<E> {
 
     E add(E e);
 
-    E update(E e);
-
     E get(Serializable id);
+
+    E update(E e);
 
     void delete(Serializable id);
 

@@ -5,26 +5,24 @@ package by.it.academy.offer.servlet;
 //import by.it.academy.offer.dao.impl.UserServiceImpl;
 
 import by.it.academy.entity.User;
-import by.it.academy.service.UserService;
+import by.it.academy.service.UserDaoImpl;
+import lombok.extern.slf4j.Slf4j;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
 
+@Slf4j
 @WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
 
-    private final UserService userService = new UserService();
+    private final UserDaoImpl userService = new UserDaoImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 
         req.getSession(true).setAttribute("offer.user.Locale", "ru");
         req.getRequestDispatcher("/WEB-INF/include/login.jsp").forward(req, resp);
@@ -32,10 +30,9 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
+
 
         String errorMsg = "";
         boolean hasError = false;
@@ -44,12 +41,13 @@ public class LoginServlet extends HttpServlet {
             hasError = true;
             errorMsg = "UserName and password should not be empty";
         } else {
-            List<User> user = userService.findUser(userName, password);
-            if (!user.isEmpty()) {
+            User user = userService.findUser(userName, password);
+            log.info("users {}", user);
+            if (user == null || userName != user.getUserName() || password != user.getPassword()) {
                 hasError = true;
                 errorMsg = "Invalid user name or password";
             } else {
-                req.getSession().setAttribute("user",userService.findUser(userName,password));
+                req.getSession().setAttribute("user", user);
             }
         }
 

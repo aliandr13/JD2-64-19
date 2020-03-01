@@ -7,7 +7,6 @@
         table {
             margin: auto;
         }
-
         td {
             text-align: center;
         }
@@ -16,26 +15,27 @@
 <body>
 
 <h3 align="center">Offers</h3>
-<table border="1">
-    <tr>
-        <th>price $</th>
-        <th>date</th>
-        <th>VIN</th>
-    </tr>
-    <c:forEach items="${modelList}" var="model">
-        <tr>
-            <td><c:out value="${model.price}"/></td>
-            <td><c:out value="${model.date}"/></td>
-            <td><c:out value="${model.VIN}"/></td>
-            <td><input type="button" name="userName" value="заказать"/></td>
-        </tr>
-    </c:forEach>
-</table>
 
-<form method="POST" action="${pageContext.request.contextPath}/Car-list">
+<form method="post" action="${pageContext.request.contextPath}/Car-order">
+    <table border="1">
+        <tr>
+            <th>mark</th>
+            <th>model</th>
+            <th>year</th>
+            <th>price $</th>
+        </tr>
+        <c:forEach items="${avaliableCars}" var="car">
+            <tr>
+                <td><c:out value="${car.model.mark.model}"/></td>
+                <td><c:out value="${car.model.name}"/></td>
+                <td><c:out value="${car.date}"/></td>
+                <td><c:out value="${car.price}"/></td>
+
+                <td><a href="${pageContext.request.contextPath}/Car-order?id=${car.id}">ЗАКАЗАТЬ</a></td>
+            </tr>
+        </c:forEach>
+    </table>
 
 </form>
-
-
 </body>
 </html>

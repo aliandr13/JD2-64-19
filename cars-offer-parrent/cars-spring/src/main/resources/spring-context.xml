@@ -4,28 +4,19 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        https://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/data/jpa
-        https://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       http://www.springframework.org/schema/data/jpa
+       https://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
     <context:annotation-config/>
-    <context:component-scan base-package="by.it.academy.offer.Homework4.dao"/>
-    <context:component-scan base-package="by.it.academy.offer.Homework4.service"/>
-<!--    <jpa:repositories base-package="by.it.academy.offer.Homework4.repository"/>-->
+    <context:component-scan base-package="by.it.academy.offer"/>
 
-    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="txManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory"/>
-    </bean>
-
-    <tx:annotation-driven transaction-manager="txManager"/>
-
-    <tx:advice transaction-manager="txManager" id="txAdvice">
-        <tx:attributes>
-            <tx:method name="*"/>
-            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
-        </tx:attributes>
-    </tx:advice>
+    <jpa:repositories base-package="by.it.academy.offer.Homework4.repository"/>
 
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="poolName" value="springHikariCP"/>
@@ -71,4 +62,15 @@
         </property>
     </bean>
 
+    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="txManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <tx:annotation-driven/>
+    <tx:advice transaction-manager="txManager" id="txAdvice">
+        <tx:attributes>
+            <tx:method name="*"/>
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
 </beans>

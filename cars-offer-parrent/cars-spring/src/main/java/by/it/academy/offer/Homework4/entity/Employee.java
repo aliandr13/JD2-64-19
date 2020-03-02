@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.context.annotation.Bean;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -29,7 +30,6 @@ public class Employee {
     private Department department;
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Meeting> meetings = new ArrayList<>();
-
 
 
 }

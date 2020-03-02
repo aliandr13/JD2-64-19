@@ -1,18 +1,25 @@
 package by.it.academy.offer.Homework4.dao;
 
-import by.it.academy.entity.Car;
-import by.it.academy.offer.Homework4.dao.impl.CarServiceImpl;
+import by.it.academy.offer.Homework4.dao.impl.EmployeeRepositoryImpl;
+import by.it.academy.offer.Homework4.entity.Employee;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 public class App {
 
-
     public static void main(String[] args) {
 
-        CarServiceImpl carService = new CarServiceImpl();
-        Car car = new Car(null, 56, 2099, "jgjgjgj", null);
-        carService.testSaveMethod(car);
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
+
+        EmployeeRepositoryImpl employeeRepository = new EmployeeRepositoryImpl();
+        Employee employee = new Employee(null, "fgf", "fgfg", null, null, null);
+        employeeRepository.testEmployeeCrudRepository(employee);
+
+        employeeRepository.lessThan2();
+        employeeRepository.testMethodFromEmployeeRepository();
+        employeeRepository.getEmployeeByFirstName("Andrei");
 
 
+        context.close();
     }
 }

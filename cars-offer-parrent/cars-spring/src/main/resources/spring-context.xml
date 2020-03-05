@@ -14,7 +14,7 @@
        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="by.it.academy.offer"/>
+    <!--    <context:component-scan base-package="by.it.academy.offer.Homework4"/>-->
 
     <jpa:repositories base-package="by.it.academy.offer.Homework4.repository"/>
 
@@ -57,7 +57,7 @@
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL55Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
         </property>
     </bean>

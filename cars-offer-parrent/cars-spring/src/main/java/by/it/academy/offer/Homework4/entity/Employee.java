@@ -31,5 +31,4 @@ public class Employee {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Meeting> meetings = new ArrayList<>();
 
-
 }

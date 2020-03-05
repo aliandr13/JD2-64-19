@@ -12,12 +12,13 @@ import java.util.List;
 public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 
     //    @Query("from  ")
-    List<Employee> findEmployeeByEmployeeDetailIsLessThan2();
 
-    List<Employee> findEmployeeByDepartmentBetween1And5();
+//    List<Employee> findEmployeeByEmployeeDetailIsLessThan( );
 
-    @Query("select d from Department d join d.employees e where e.lastName = :lastName")
-    List<Employee> getEmployeeByFirstName(@Param("firstName") String FirstName);
+//    List<Employee> findEmployeeByDepartmentBetween1And5();
+
+    @Query("select d from Department d join d.employees e where e.lastName = :lastName ")
+    List<Employee> getEmployeeByFirstName(@Param("lastName") String FirstName);
 
 
 }

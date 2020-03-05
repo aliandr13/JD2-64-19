@@ -2,8 +2,7 @@ package by.it.academy.offer.Homework4.dao.impl;
 
 import by.it.academy.offer.Homework4.entity.Employee;
 import by.it.academy.offer.Homework4.repository.EmployeeRepository;
-import by.it.academy.offer.Homework4.service.BaseService;
-import by.it.academy.offer.Homework4.service.EmployeeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -11,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-public class EmployeeRepositoryImpl extends BaseService<Employee> implements EmployeeService {
+public class EmployeeRepositoryImpl {
 
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -21,14 +20,14 @@ public class EmployeeRepositoryImpl extends BaseService<Employee> implements Emp
         employeeRepository.save(empl);
     }
 
-    @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
-    public void testMethodFromEmployeeRepository() {
-        employeeRepository.findEmployeeByDepartmentBetween1And5();
-    }
+//    @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
+//    public void testMethodFromEmployeeRepository() {
+//        employeeRepository.findEmployeeByDepartmentBetween1And5();
+//    }
 
-    public void lessThan2() {
-        employeeRepository.findEmployeeByEmployeeDetailIsLessThan2();
-    }
+//    public void lessThan2() {
+//        employeeRepository.findEmployeeByEmployeeDetailIsLessThan2();
+//    }
 
     @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
     public void getEmployeeByFirstName(String FirstName) {

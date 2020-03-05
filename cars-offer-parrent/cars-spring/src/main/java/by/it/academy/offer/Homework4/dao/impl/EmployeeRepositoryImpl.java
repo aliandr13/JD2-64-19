@@ -15,7 +15,7 @@ public class EmployeeRepositoryImpl {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRED)
     public void testEmployeeCrudRepository(Employee empl) {
         employeeRepository.save(empl);
     }

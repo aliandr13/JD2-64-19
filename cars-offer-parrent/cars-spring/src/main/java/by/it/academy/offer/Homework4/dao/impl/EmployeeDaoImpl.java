@@ -10,11 +10,11 @@ import java.util.List;
 @Repository
 public class EmployeeDaoImpl extends BaseDao<Employee> implements EmployeeDao {
 
-    protected EmployeeDaoImpl(Class<Employee> clazz) {
-        super(clazz);
+    protected EmployeeDaoImpl() {
+        super(Employee.class);
     }
 
-    @Override
+//    @Override
     public List<Employee> getEmployee() {
         return getEm().createQuery("from Employee ", Employee.class).getResultList();
     }

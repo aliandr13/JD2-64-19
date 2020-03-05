@@ -9,7 +9,7 @@ public class App {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
 
-        EmployeeRepositoryImpl employeeRepository = new EmployeeRepositoryImpl();
+        EmployeeRepositoryImpl employeeRepository = context.getBean(EmployeeRepositoryImpl.class);
         Employee employee = new Employee(null, "fgf", "fgfg", null, null, null);
 
         employeeRepository.testEmployeeCrudRepository(employee);
